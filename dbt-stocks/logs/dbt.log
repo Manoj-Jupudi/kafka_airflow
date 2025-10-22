@@ -1,0 +1,31 @@
+[0m17:08:10.779023 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103ced090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104d98550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104d9bd00>]}
+
+
+============================== 17:08:10.782711 | da10de29-f146-47eb-8938-96473eda6140 ==============================
+[0m17:08:10.782711 [info ] [MainThread]: Running with dbt=1.10.13
+[0m17:08:10.783222 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'cache_selected_only': 'False', 'introspect': 'True', 'no_print': 'None', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'invocation_command': 'dbt init', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'log_path': 'logs', 'log_format': 'default', 'fail_fast': 'False', 'empty': 'None', 'target_path': 'None', 'debug': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'profiles_dir': '/Users/manoj/.dbt', 'use_experimental_parser': 'False', 'quiet': 'False', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True'}
+[0m17:08:10.796243 [info ] [MainThread]: Creating dbt configuration folder at /Users/manoj/.dbt
+[0m17:08:17.009766 [debug] [MainThread]: Starter project path: /Users/manoj/Desktop/PySpark/venv/lib/python3.10/site-packages/dbt/include/starter_project
+[0m17:08:17.023224 [info ] [MainThread]: 
+Your new dbt project "dbt_stocks" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m17:08:17.024115 [info ] [MainThread]: Setting up your profile.
+[0m17:09:58.565732 [info ] [MainThread]: Profile dbt_stocks written to /Users/manoj/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m17:09:58.607709 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 107.896355, "process_in_blocks": "0", "process_kernel_time": 0.27238, "process_mem_max_rss": "119193600", "process_out_blocks": "0", "process_user_time": 1.335255}
+[0m17:09:58.610475 [debug] [MainThread]: Command `dbt init` succeeded at 17:09:58.610239 after 107.90 seconds
+[0m17:09:58.611502 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103ced090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104d50460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104d9b2e0>]}
+[0m17:09:58.613104 [debug] [MainThread]: Flushing usage events
+[0m17:10:16.272122 [debug] [MainThread]: An error was encountered while trying to flush usage events

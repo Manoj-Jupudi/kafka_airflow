@@ -1,0 +1,63 @@
+[2025-10-20T17:11:13.799+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-20T17:11:13.821+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake manual__2025-10-20T17:11:02.943680+00:00 [queued]>
+[2025-10-20T17:11:13.827+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake manual__2025-10-20T17:11:02.943680+00:00 [queued]>
+[2025-10-20T17:11:13.827+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-10-20T17:11:13.835+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_snowflake> on 2025-10-20 17:11:02.943680+00:00
+[2025-10-20T17:11:13.840+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'minio_to_snowflake', 'load_snowflake', 'manual__2025-10-20T17:11:02.943680+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/minio_to_snowflake.py', '--cfg-path', '/tmp/tmp5f6gko80']
+[2025-10-20T17:11:13.843+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask load_snowflake
+[2025-10-20T17:11:13.842+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=10166) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-20T17:11:13.844+0000] {standard_task_runner.py:64} INFO - Started process 10176 to run task
+[2025-10-20T17:11:13.878+0000] {task_command.py:426} INFO - Running <TaskInstance: minio_to_snowflake.load_snowflake manual__2025-10-20T17:11:02.943680+00:00 [running]> on host 247b7821f06b
+[2025-10-20T17:11:13.935+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='minio_to_snowflake' AIRFLOW_CTX_TASK_ID='load_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2025-10-20T17:11:02.943680+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-20T17:11:02.943680+00:00'
+[2025-10-20T17:11:13.936+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-20T17:11:13.955+0000] {connection.py:408} INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+[2025-10-20T17:11:13.956+0000] {connection.py:1258} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-10-20T17:11:14.794+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-20T17:11:14.795+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/minio_to_snowflake.py", line 45, in load_to_snowflake
+    conn = snowflake.connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/__init__.py", line 55, in Connect
+    return SnowflakeConnection(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 451, in __init__
+    self.connect(**kwargs)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 756, in connect
+    self.__open_connection()
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1084, in __open_connection
+    self.authenticate_with_retry(self.auth_class)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1364, in authenticate_with_retry
+    self._authenticate(auth_instance)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1392, in _authenticate
+    auth.authenticate(
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/auth/_auth.py", line 401, in authenticate
+    Error.errorhandler_wrapper(
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 348, in hand_to_other_handler
+    connection.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.DatabaseError: 250001 (08001): None: Failed to connect to DB: ga28589.central-india.azure.snowflakecomputing.com:443. Your user account has been temporarily locked. Try again later or contact your account administrator for assistance. For more information about this error, go to https://community.snowflake.com/s/error-your-user-login-has-been-locked.
+[2025-10-20T17:11:14.809+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=minio_to_snowflake, task_id=load_snowflake, run_id=manual__2025-10-20T17:11:02.943680+00:00, execution_date=20251020T171102, start_date=20251020T171113, end_date=20251020T171114
+[2025-10-20T17:11:14.826+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 16 for task load_snowflake (250001 (08001): None: Failed to connect to DB: ga28589.central-india.azure.snowflakecomputing.com:443. Your user account has been temporarily locked. Try again later or contact your account administrator for assistance. For more information about this error, go to https://community.snowflake.com/s/error-your-user-login-has-been-locked.; 10176)
+[2025-10-20T17:11:14.831+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2025-10-20T17:11:14.845+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-20T17:11:14.846+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
